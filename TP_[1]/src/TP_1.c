@@ -1,10 +1,10 @@
 /*
  ============================================================================
  Name        : TP_1.c
- Author      : 
+ Author      : ANZOR MAIA MARIA LUZ
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : TP_1 - Div A
  ============================================================================
  */
 
