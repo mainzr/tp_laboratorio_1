@@ -56,14 +56,14 @@ int main() {
 				 break;
 			 case 3:
 				 if(flagUno == 0 && flagDos == 0){
-					 printf("Se debe ingresar 1er y 2do operando\n");
+					 printf("Se debe ingresar 1er y 2do operador\n");
 
 				 } else{
 					 if(flagUno == 1 && flagDos == 0){
-						 printf("Se debe ingresar 2do operando\n");
+						 printf("Se debe ingresar 2do operador\n");
 					 } else {
 						 if(flagUno == 0 && flagDos == 1) {
-							 printf("Ingrese 1er operando\n");
+							 printf("Ingrese 1er operador\n");
 						 } else {
 							 calculadora = hacerOperaciones(a, b, &suma, &resta, &multiplicacion, &errorFactA, &errorFactB, &errorDivision, &respuestaFactorialA, &respuestaFactorialB, &respuestaDivision);
 
