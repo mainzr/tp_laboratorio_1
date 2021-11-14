@@ -116,6 +116,7 @@ int main()
             case 7:
             	if(listaEmpleados->size)
             	{
+
                 	controller_sortEmployee(listaEmpleados);
 
             	}
@@ -167,7 +168,7 @@ int main()
             	printf("Opcion invalida..\n");
             	break;
         }
-     system("pause");
+     //system("pause");
 
     } while(seguir == 's');
 

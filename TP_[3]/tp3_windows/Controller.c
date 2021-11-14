@@ -557,9 +557,9 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 					}
 
 					//LLAMO A LL_SORT CON SU CRITERIO DE ORDENAMIETNO , LO GUARDO EN VARIABLE, SEGUN ESA VARIABLE HAGO QUE SE ORDENE DE UNA FORMA U OTRA
-
-						ll_sort(listCopy, sortByName, orden);
-						controller_ListEmployee(listCopy);
+					printf("\nESPERE UNOS MINUTOS...EL ORDENAMIENTO ESTA SIENDO PROCESADO....\n");
+					ll_sort(listCopy, sortByName, orden);
+					controller_ListEmployee(listCopy);
 					break;
 
 				case 2:
@@ -570,6 +570,9 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 						printf("Error al ingresar forma de ordenamiento....Reintentelo nuevamente: ");
 						scanf("%d", &orden);
 					}
+
+					printf("\nESPERE UNOS MINUTOS...EL ORDENAMIENTO ESTA SIENDO PROCESADO....\n");
+
 					ll_sort(listCopy, sortById, orden);
 					controller_ListEmployee(listCopy);
 					break;
@@ -583,6 +586,8 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 						scanf("%d", &orden);
 					}
 
+					printf("\nESPERE UNOS MINUTOS...EL ORDENAMIENTO ESTA SIENDO PROCESADO....\n");
+
 					ll_sort(listCopy, sortByHorasTrab, orden);
 					controller_ListEmployee(listCopy);
 					break;
@@ -594,6 +599,8 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 						printf("Error al ingresar forma de ordenamiento....Reintentelo nuevamente: ");
 						scanf("%d", &orden);
 					}
+
+					printf("\nESPERE UNOS MINUTOS...EL ORDENAMIENTO ESTA SIENDO PROCESADO....\n");
 
 					ll_sort(listCopy, sortBySueldo, orden);
 					controller_ListEmployee(listCopy);
