@@ -18,7 +18,7 @@ int menu()
 {
 	int option;
 
-	printf("**************************************************\n");
+	printf("\n\n**************************************************\n");
 	printf("                 AMB EMPLOYEES      \n");
 	printf("**************************************************\n\n");
 
@@ -485,7 +485,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 
 		 printf("\n                                  LISTA DE EMPLEADOS                             \n");
 		 printf(" -------------------------------------------------------------------------------\n");
-		 printf("     ID          NOMBRE               HORAS TRABAJADAS                SUELDO          \n");
+		 printf("     ID          NOMBRE             HORAS TRABAJADAS           SUELDO          \n");
 		 printf(" --------------------------------------------------------------------------------\n\n");
 
 

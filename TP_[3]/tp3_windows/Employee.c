@@ -275,7 +275,7 @@ void printEmployee(Employee* oneEmployee)
 		employee_getSueldo(oneEmployee, &sueldo);
 
 
-		printf("    %-10d     %-20s    %-11d     $ %-12d",
+		printf("    %-9d     %-20s    %-15d     $ %-12d",
 				id, nombre, horasTrabajadas,  sueldo );
 	}
 

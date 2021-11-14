@@ -39,19 +39,19 @@ int main()
             case 1:
             	if(flagCsv == 1)
             	{
-            		printf("No se puede cargar dos veces el mismo archivo\n\n");
+            		printf("\nNo se puede cargar dos veces el mismo archivo\n\n");
             	}
             	else
             	{
                 	if(controller_loadFromText("data.csv", listaEmpleados) == 0)
                 	{
                 		flagCsv = 1;
-                		printf("ARCHIVOS DE TEXTO CARGADOS CON EXITO....\n");
+                		printf("\nARCHIVOS DE TEXTO CARGADOS CON EXITO....\n");
 
                 	}
                 	else
                 	{
-                		printf("Ocurrio un error....");
+                		printf("\nOcurrio un error....");
 
                 	}
             	}
@@ -59,19 +59,19 @@ int main()
             case 2:
               	if(flagBin == 1)
                 	{
-                		printf("No se puede cargar dos veces el mismo archivo\n\n");
+                		printf("\nNo se puede cargar dos veces el mismo archivo\n\n");
                 	}
                 	else
                 	{
                     	if(controller_loadFromBinary("data.bin", listaEmpleados) == 0)
                     	{
                     		flagBin = 1;
-                    		printf("ARCHIVOS BINARIOS CARGADOS CON EXITO....\n");
+                    		printf("\nARCHIVOS BINARIOS CARGADOS CON EXITO....\n");
 
                     	}
                     	else
                     	{
-                    		printf("Ocurrio un error....");
+                    		printf("\nOcurrio un error....");
 
                     	}
                 	}
@@ -88,7 +88,7 @@ int main()
             	}
             	else
             	{
-            		printf("Se debe ingresar datos de empleados.\n");
+            		printf("\nSe debe ingresar datos de empleados...\n");
             	}
             	break;
             case 5:
@@ -99,7 +99,7 @@ int main()
             	}
             	else
             	{
-            		printf("Se debe ingresar datos de empleados.\n");
+            		printf("\nSe debe ingresar datos de empleados...\n");
             	}
             	break;
             case 6:
@@ -110,7 +110,7 @@ int main()
             	}
             	else
             	{
-            		printf("Se debe ingresar datos de empleados.\n");
+            		printf("\nSe debe ingresar datos de empleados...\n");
             	}
             	break;
             case 7:
@@ -122,7 +122,7 @@ int main()
             	}
             	else
             	{
-            		printf("Se debe ingresar datos de empleados.\n");
+            		printf("\nSe debe ingresar datos de empleados...\n");
             	}
             	break;
             case 8:
@@ -133,7 +133,7 @@ int main()
             	}
             	else
             	{
-            		printf("Se debe ingresar datos de empleados.\n");
+            		printf("\nSe debe ingresar datos de empleados...\n");
             	}
             	break;
             case 9:
