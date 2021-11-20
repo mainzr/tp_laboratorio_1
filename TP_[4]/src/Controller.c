@@ -794,15 +794,21 @@ int controller_listNuevosEmployees(LinkedList* pArrayEmployee)
 				controller_ListEmployee(pArrayEmployee);
 				printf("Ingrese el ID del empleado que desea agregar a su nueva lista: ");
 				scanf("%d", &newId);
+				//como no repetur id
+
 
 				index = findEmployeeById(pArrayEmployee, newId);
 
-				if(index == -1)
+				if(index != -1)
 				{
-					printf("Ocurrio un error.....\n");
+					printf("\n\n-------------------------------------------------------------\n");
+					printf("   ERROR, EL EMPLEADO YA SE ENCUENTRA ACTUALMENTE EN LA LISTA...\n");
+					printf("-------------------------------------------------------------\n\n");
+
 				}
 				else
 				{
+
 					auxEmp = ll_get(pArrayEmployee, index);
 					if(ll_push(newList, ll_len(newList), auxEmp) == -1)
 					{
