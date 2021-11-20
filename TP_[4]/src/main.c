@@ -76,12 +76,10 @@ int main(void)
                 	{
                 		flagCsv = 1;
                 		printf("\nARCHIVOS DE TEXTO CARGADOS CON EXITO....\n");
-
                 	}
                 	else
                 	{
                 		printf("\nOcurrio un error....");
-
                 	}
             	}
                 break;
@@ -96,7 +94,6 @@ int main(void)
 			  else
 			  {
 				  printf("\nSe deben ingresar empleados...\n");
-
 			  }
             	break;
             case 4:
@@ -104,20 +101,16 @@ int main(void)
             	if(ll_isEmpty(listaEmpleados) == 0)
             	{
                 	controller_editEmployee(listaEmpleados);
-
             	}
             	else
             	{
             		printf("\nSe debe ingresar datos de empleados...\n");
             	}
-
-
             	break;
             case 5:
             	if(listaEmpleados->size)
             	{
                 	controller_removeEmployee(listaEmpleados);
-
             	}
             	else
             	{
@@ -128,7 +121,6 @@ int main(void)
             	if(ll_isEmpty(listaEmpleados) == 0)
             	{
             		controller_ListEmployee(listaEmpleados);
-
             	}
             	else
             	{
@@ -138,9 +130,7 @@ int main(void)
             case 7:
             	if(listaEmpleados->size)
             	{
-
-                	controller_sortEmployee(listaEmpleados);
-
+            		controller_sortEmployee(listaEmpleados);
             	}
             	else
             	{
@@ -183,7 +173,7 @@ int main(void)
             case 11:
             	if(filesText == 1)
             	{
-    				printf("¿Seguro desea salir majestad? (s/n): ");
+            		printf("¿Seguro desea salir majestad? (s/n): ");
     				fflush(stdin);
     				scanf("%c", &respuesta);
     				respuesta = 'n';
@@ -198,41 +188,9 @@ int main(void)
             	printf("Opcion invalida..\n");
             	break;
         }
-     system("pause");
+     //system("pause");
 
     } while(seguir == 's');
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

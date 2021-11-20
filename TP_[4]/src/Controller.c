@@ -865,8 +865,6 @@ int controller_listNuevosEmployees(LinkedList* pArrayEmployee)
 		error = 0;
 	}
 
-
-
 	return error;
 }
 
