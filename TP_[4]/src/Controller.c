@@ -882,9 +882,9 @@ int controller_eliminarCompletamente(LinkedList* pArrayEmployee)
 	char confirm;
 	int opcion;
 
-	printf("\n----------------------------------------------------------------\n");
-	printf("    PELIGRO: USTED ESTA EN EL SECTOR DE ELIMINACION DE DATOS\n");
-	printf("----------------------------------------------------------------\n\n");
+	printf("\n-------------------------------------------------------------------\n");
+	printf("  PELIGRO: USTED SE ENCUENTRA EN EL SECTOR DE ELIMINACION DE DATOS\n");
+	printf("--------------------------------------------------------------------\n\n");
 
 
 	printf("1. Eliminar empleados de la lista\n");
