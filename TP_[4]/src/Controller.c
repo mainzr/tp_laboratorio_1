@@ -744,6 +744,7 @@ int controller_listNuevosEmployees(LinkedList* pArrayEmployee)
 	int newId;
 	int index;
 	Employee* auxEmp;
+	int indexDos;
 
 
 	if(pArrayEmployee != NULL)
@@ -798,10 +799,13 @@ int controller_listNuevosEmployees(LinkedList* pArrayEmployee)
 
 
 				index = findEmployeeById(pArrayEmployee, newId);
+				indexDos = findEmployeeById(newList, newId);
 
-				if(index != -1)
+				if(index != -1 && indexDos != -1)
 				{
-					printf("\nOcurrio un error....\n");
+					printf("\n-----------------------------------------------------------------\n");
+					printf("    ERROR, EL EMPLEADO YA SE ENCUENTRA ACTUALMENTE EN LA LISTA...\n");
+					printf("-----------------------------------------------------------------\n\n");
 				}
 				else
 				{
