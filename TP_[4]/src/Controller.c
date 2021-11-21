@@ -801,10 +801,7 @@ int controller_listNuevosEmployees(LinkedList* pArrayEmployee)
 
 				if(index != -1)
 				{
-					printf("\n\n-------------------------------------------------------------\n");
-					printf("   ERROR, EL EMPLEADO YA SE ENCUENTRA ACTUALMENTE EN LA LISTA...\n");
-					printf("-------------------------------------------------------------\n\n");
-
+					printf("\nOcurrio un error....\n");
 				}
 				else
 				{
