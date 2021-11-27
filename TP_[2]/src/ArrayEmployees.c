@@ -7,7 +7,6 @@
 
 int resetFlag(eEmployee* list, int len, int* flag){
 	int error = -1;
-	//int flag = 0;
 
 	if(list != NULL && len > 0)
 	{
@@ -31,6 +30,8 @@ int resetFlag(eEmployee* list, int len, int* flag){
 	return error;
 }
 
+
+
 int initEmployees(eEmployee* list, int len){
 	int error = -1;
 
@@ -43,6 +44,8 @@ int initEmployees(eEmployee* list, int len){
 	}
 	return error;
 }
+
+
 
 
 int searchFree(eEmployee list[], int len){
@@ -74,8 +77,7 @@ int addEmployees(eEmployee* list, int len, int id, char name[], char lastName[],
 	int error = -1;
 	int index;
 	eEmployee auxEmployee;
-	//eEmployee aux;
-	//char auxName[100];
+
 
 
 
@@ -97,6 +99,7 @@ int addEmployees(eEmployee* list, int len, int id, char name[], char lastName[],
 			 auxEmployee.id = id;
 
 			getString(name, len, "Ingrese nombre del empleado: ", "Error al ingresar nombre...Reeintentelo nuevamnete.", 51);
+			validateLetters(lastName);
 			strcpy(auxEmployee.name, name);
 
 
@@ -104,11 +107,12 @@ int addEmployees(eEmployee* list, int len, int id, char name[], char lastName[],
 			validateLetters(lastName);
 			strcpy(auxEmployee.lastName, lastName);
 
-			getFloat(&salary, "Ingrese monto del salario (entre 1 - 500000): ", "Error al ingresar salario...Reintentelo nuevamente: ", 1, 500000);
+
+			soloFloat(&salary, "Ingrese monto del salario (entre 1 - 500000): ", "Error al ingresar salario...Reintentelo nuevamente: ", 1, 500000);
 			auxEmployee.salary = salary;
 
 
-			getInteger(&sector, "Ingrese sector del empleado (entre 1 - 20): ", "Error al ingresar sector...Reintentelo nuevamente: ", 1, 20);
+			getInteger(&sector, "Ingrese sector del empleado (entre 1 - 20): ", "Error");
 			auxEmployee.sector = sector;
 
 
@@ -118,7 +122,6 @@ int addEmployees(eEmployee* list, int len, int id, char name[], char lastName[],
 
 		 }
 	}
-	//system("cls");
 
 	return error;
 }
@@ -148,6 +151,8 @@ void printEmployee(eEmployee oneEmployee) {
 			oneEmployee.salary,
 			oneEmployee.sector);
 }
+
+
 
 int printEmployees(eEmployee* list, int length){
 	int error = -1;
@@ -223,12 +228,16 @@ int modifyEmployee(eEmployee* list, int len)
 			printf("\n\n¿Desea confirmar la modificacion de este empleado? (s/n): ");
 			fflush(stdin);
 			scanf("%c", &confirm);
-			if(validateChar(confirm, 's', 'n'))
-			{
-				printf("Opcion incorrecta...Reintentelo nuevamente: ");
-				fflush(stdin);
-				scanf("%c", &confirm);
-			}
+			do{
+				if(validateChar(confirm, 's', 'n'))
+				{
+					printf("Opcion incorrecta...Reintentelo nuevamente: ");
+					fflush(stdin);
+					scanf("%c", &confirm);
+				}
+
+			} while(validateChar(confirm, 's', 'n') == -1);
+
 
 			if(confirm == 's')
 			{
@@ -258,15 +267,18 @@ int modifyEmployee(eEmployee* list, int len)
 						break;
 
 					case 3:
-						getFloat(&auxFloat, "Ingrese el nuevo monto (entre $1 - $500000): $ ", "Dato invalido...Reintentelo nuevamente.\n", 1, 500000);
+						soloFloat(&auxFloat, "Ingrese el nuevo monto (entre $1 - $500000): $ ", "Dato invalido...Reintentelo nuevamente.\n", 1, 500000);
 						list[index].salary = auxFloat;
+
+
+						//getFloat(&auxFloat, "Ingrese el nuevo monto (entre $1 - $500000): $ ", "Dato invalido...Reintentelo nuevamente.\n", 1, 500000);
 
 						printf("\n\nLista de empleados actualizada: ");
 					    printEmployees(list, len);
 						break;
 
 					case 4:
-						getInteger(&auxInt, "Ingrese el nuevo sector (entre 1 - 20): ", "Dato invalido...Reintentelo nuevamente.\n", 1, 20);
+						getInteger(&auxInt, "Ingrese el nuevo sector (entre 1 - 20): ", "Error");
 						list[index].sector = auxInt;
 
 						printf("\n\nLista de empleados actualizada: ");
@@ -274,7 +286,7 @@ int modifyEmployee(eEmployee* list, int len)
 						break;
 
 					default:
-						printf("Error al elegir opcion...Reintentelo nuevamente.\n");
+						printf("Error al belegir opcion...Reintentelo nuevamente.\n");
 						break;
 				}
 
@@ -320,12 +332,15 @@ int removeEmployee(eEmployee* list, int len, int id){
 			printf("¿Desea confirmar la baja de empleado? (s/n)");
 			fflush(stdin);
 			scanf("%c", &confirm);
-			if(validateChar(confirm, 's', 'n'))
-			{
-				printf("Opcion incorrecta...Reintentelo nuevamente: ");
-				fflush(stdin);
-				scanf("%c", &confirm);
-			}
+			do{
+				if(validateChar(confirm, 's', 'n'))
+				{
+					printf("Opcion incorrecta...Reintentelo nuevamente: ");
+					fflush(stdin);
+					scanf("%c", &confirm);
+				}
+
+			} while(validateChar(confirm, 's', 'n') == -1);
 
 			if(confirm == 's'){
 				list[index].isEmpty = 1;

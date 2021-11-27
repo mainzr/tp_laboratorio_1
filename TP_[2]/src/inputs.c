@@ -5,6 +5,7 @@
 #include "ArrayEmployees.h"
 
 
+
 int menu()
 {
 	int option;
@@ -114,37 +115,10 @@ int firstLetterMayus(char name[]){
 
 		        i++;
 		 }
-		    //puts(name);
 
 	  error = 0;
 	}
     return error;
-}
-
-
-
-int getFloat(float* number, char* message, char* errorMessage,float minNumber, float maxNumber)
-{
-	int error = -1;
-	float auxFloat;
-
-	if(message != NULL && errorMessage != NULL )
-	{
-		printf("%s", message);
-		scanf("%f", &auxFloat);
-
-		while(auxFloat <= minNumber || auxFloat >= maxNumber)
-		{
-			printf("%s", errorMessage);
-			scanf("%f", &auxFloat);
-		}
-
-		*number = auxFloat;
-
-		error = 0;
-	}
-
-	return error;
 }
 
 
@@ -228,83 +202,6 @@ int validateChar(char character, char firstOption, char secondOption)
     return error;
 }
 
-int getInteger(int* number, char* message, char* errorMessage, int minNumber, int maxNumber)
-{
-	int error = -1;
-	int auxInt;
-
-	if(message != NULL && errorMessage != NULL )
-	{
-		printf("%s", message);
-		scanf("%d", &auxInt);
-
-		while(auxInt <= minNumber || auxInt >= maxNumber)
-		{
-			printf("%s", errorMessage);
-			scanf("%d", &auxInt);
-		}
-
-		*number = auxInt;
-
-		error = 0;
-	}
-
-    return error;
-}
-
-int validarNumeros(char num[])
-{
-	int error = 1;
-	if(strlen(num) > 0)
-		{
-			for(int i = 0;i< strlen(num);i++)
-			{
-				if(isdigit(num[i]) == 0)
-				{
-					if(i == 0 && num[0] == '-')
-					{
-	                    error = 1;
-					}
-					else
-					{
-						error =0;
-					}
-				}
-			}
-		}
-	    else
-	    {
-	        error = 0;
-	    }
-	return error;
-}
-
-
-
-int pedirEntero(int* entero, char* mensaje, char* mensajeError, int min, int max)
-{
-	int error = -1;
-	char auxNum[128];
-
-	if(entero != NULL && mensaje != NULL && mensajeError != NULL && min < max)
-	{
-		printf("%s", mensaje);
-		gets(auxNum);
-		fflush(stdin);
-
-		while(validarNumeros(auxNum) == 0 || atoi(auxNum) < min || atoi(auxNum) > max)
-		{
-			printf("%s", mensajeError);
-			gets(auxNum);
-			fflush(stdin);
-		}
-
-		*entero = atoi(auxNum);
-		error = 0;
-	}
-
-	return error;
-}
 
 
 int enterFloat(float number, float firtstLimit, float secondLimit)
@@ -321,3 +218,182 @@ int enterFloat(float number, float firtstLimit, float secondLimit)
     return error;
 }
 
+//-----
+
+int esNumero(char *cadena)
+{
+    int error = 1;
+
+    for (int i = 0; cadena[i] != '\0'; i++)
+    {
+        if (cadena[0] == '-')
+        {
+            i = 1;
+        }
+        if (cadena[i] > '9' || cadena[i] < '0')
+        {
+            error = 0;
+            break;
+        }
+    }
+    return error;
+}
+
+
+int find(char *cadena, int tam)
+{
+	char buffer[4096];
+
+	fflush(stdin);
+	scanf("%s", buffer);
+	strncpy(cadena, buffer, tam);
+
+	return -1;
+}
+
+
+int getInts(int *pNumResul)
+{
+    int error = 0;
+    char buffer[4026];
+
+    if (find(buffer, sizeof(buffer)) && esNumero(buffer))
+    {
+        error = 1;
+        *pNumResul = atoi(buffer);
+    }
+
+    return error;
+}
+
+
+
+
+int getInteger(int* numero, char* mensaje, char* mensajeError)
+{
+    int error = -1;
+    int buffer;
+    //int error;
+
+    if(numero != NULL && mensaje!= NULL && mensajeError!= NULL)
+    {
+        do
+        {
+            printf("%s ", mensaje);
+            error = getInts(&buffer);
+
+            if(error == 1)
+            {
+                *numero = buffer;
+                error = 0;
+                break;
+            }
+            else
+            {
+                printf("\n%s ", mensajeError);
+            }
+
+        } while(1);
+    }
+    return error;
+}
+
+//----------
+
+int esNumericoFlotante(char cadena[])
+{
+    int i = 0;
+    int cantidadPuntos = 0;
+
+    while (cadena[i] != '\0')
+    {
+        if (i == 0 && cadena[i] == '-')
+        {
+            i++;
+            continue;
+        }
+        if (cadena[i] == '.' && cantidadPuntos == 0)
+        {
+            cantidadPuntos++;
+            i++;
+            continue;
+        }
+        if (cadena[i] < '0' || cadena[i] > '9')
+        {
+            return 0;
+        }
+        i++;
+    }
+    return 1;
+
+}
+
+
+
+int getFloat(float *pResultado)
+{
+    int retorno = -1;
+    char buffer[4096];
+    if (find(buffer, sizeof(buffer)) && esNumericoFlotante(buffer))
+    {
+        retorno = 0;
+        *pResultado = atof(buffer);
+    }
+    return retorno;
+}
+
+
+int soloNumeros(char* num)
+{
+	int error = 0;
+
+	if(strlen(num) > 0)
+    {
+        for(int i = 0; i < strlen(num); i++)
+        {
+            if(!isdigit(num[i]))
+            {
+                if(!i && num[0] == '-')
+                {
+                    error=0;
+                }
+                else
+                {
+                    error=1;
+                }
+            }
+        }
+    }
+    else
+    {
+        error=1;
+    }
+
+	return error;
+}
+
+
+int soloFloat(float* number, char mensaje[], char mensajeError[], float min, float max)
+{
+    int error=-1;
+    char numeroAux[20];
+
+	if(number!=NULL && mensaje!= NULL && mensajeError!=NULL && min<max)
+	{
+		printf("%s", mensaje);
+		gets(numeroAux);
+		fflush(stdin);
+
+		while(soloNumeros(numeroAux) || atoi(numeroAux) < min || atoi(numeroAux) > max)
+		{
+			printf("%s", mensajeError);
+			gets(numeroAux);
+			fflush(stdin);
+		}
+
+        *number = atoi(numeroAux);
+		error = 0;
+	}
+
+	return error;
+}

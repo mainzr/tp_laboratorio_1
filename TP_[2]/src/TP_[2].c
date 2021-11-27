@@ -36,8 +36,6 @@ int main(void) {
 	}
 
 
-	system("cls");
-
 	do{
 		switch(menu()){
 		    case 1:

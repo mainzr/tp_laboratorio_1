@@ -66,7 +66,7 @@ int getString(char* string, int len, char* message, char* errorMessage, int maxC
  * @param maxNumber maximo numero que podra tener dicho numero
  * @return retorna 0 en caso de que no  haya error y -1 en caso de error
  */
-int getFloat(float* number, char* message, char* errorMessage,float minNumber, float maxNumber);
+//int getFloat(float* number, char* message, char* errorMessage,float minNumber, float maxNumber);
 /**
  * @fn int getInteger(int*, char*, char*, int, int)
  * @brief valida el ingreso de un entero
@@ -78,7 +78,8 @@ int getFloat(float* number, char* message, char* errorMessage,float minNumber, f
  * @param maxNumber  tamaño maximo que debera cumpir numero ingresado
  * @return retorna 0 en caso de que no haya error y -1 en caso de error
  */
-int getInteger(int* number, char* message, char* errorMessage, int minNumber, int maxNumber);
+//int getInteger(int* number, char* message, char* errorMessage, int minNumber, int maxNumber);
+
 /**
  * @fn int resetFlag(eEmployee*, int, int*)
  * @brief resetea la flag cada vez que no haya ningun empleado ingresado
@@ -104,9 +105,16 @@ int soloLetras(char name[]);
 
 int validateChar(char character, char firstOption, char secondOption);
 
-int validarNumeros(char numeroIngresado[]);
+int esNumero(char *cadena);
 
-int validarNumeros(char numeros[]);
+int find(char buffer[], int tam);
 
-int pedirEntero(int* entero, char* mensaje, char* mensajeError, int min, int max);
+int getInts(int *pNumResul);
 
+int getInteger(int* numero, char* mensaje, char* mensajeError);
+
+int esNumericoFlotante(char cadena[]);
+
+int soloNumeros(char* num);
+
+int soloFloat(float* number, char mensaje[], char mensajeError[], float min, float max);
