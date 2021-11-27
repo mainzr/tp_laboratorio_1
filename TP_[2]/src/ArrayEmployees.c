@@ -99,12 +99,10 @@ int addEmployees(eEmployee* list, int len, int id, char name[], char lastName[],
 			 auxEmployee.id = id;
 
 			getString(name, len, "Ingrese nombre del empleado: ", "Error al ingresar nombre...Reeintentelo nuevamnete.", 51);
-			validateLetters(lastName);
 			strcpy(auxEmployee.name, name);
 
 
 			getString(lastName, len, "Ingrese apellido del empleado: ", "Error al ingresar apellido....Reintentelo nuevamente: ", 51);
-			validateLetters(lastName);
 			strcpy(auxEmployee.lastName, lastName);
 
 
