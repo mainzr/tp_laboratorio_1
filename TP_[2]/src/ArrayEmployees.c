@@ -1,25 +1,9 @@
-/*
- * ArrayEmployees.c
- *
- *  Created on: 16 oct. 2021
- *      Author: MAIA
- */
-
-
-/*
- * ArrayEmployees.c
- *
- *  Created on: 16 oct. 2021
- *      Author: MAIA
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 #include "ArrayEmployees.h"
-#include "validaciones.h"
-#include "menus.h"
+#include "inputs.h"
 
 int resetFlag(eEmployee* list, int len, int* flag){
 	int error = -1;
@@ -59,6 +43,7 @@ int initEmployees(eEmployee* list, int len){
 	}
 	return error;
 }
+
 
 int searchFree(eEmployee list[], int len){
 
@@ -104,16 +89,14 @@ int addEmployees(eEmployee* list, int len, int id, char name[], char lastName[],
 
 		 if(index == -1)
 		 {
-			 printf("No existe lugar disponible...\n");
+			 printf("\nNo existe lugar disponible...\n");
 			 error = -1;
 		 }
 		 else
 		 {
 			 auxEmployee.id = id;
 
-
 			getString(name, len, "Ingrese nombre del empleado: ", "Error al ingresar nombre...Reeintentelo nuevamnete.", 51);
-			validateLetters(name);
 			strcpy(auxEmployee.name, name);
 
 
@@ -128,10 +111,9 @@ int addEmployees(eEmployee* list, int len, int id, char name[], char lastName[],
 			getInteger(&sector, "Ingrese sector del empleado (entre 1 - 20): ", "Error al ingresar sector...Reintentelo nuevamente: ", 1, 20);
 			auxEmployee.sector = sector;
 
+
 			auxEmployee.isEmpty = 0;
 			list[index] = auxEmployee;
-
-
 			error = 0;
 
 		 }
@@ -492,5 +474,3 @@ int inform(eEmployee* list, int len){
 
 	return error;
 }
-
-
