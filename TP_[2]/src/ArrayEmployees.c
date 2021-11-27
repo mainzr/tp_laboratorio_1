@@ -205,7 +205,6 @@ int modifyEmployee(eEmployee* list, int len)
 	if(list != NULL && len > 0)
 	{
 
-		system("cls");
 
 		printf("--------------------------------------------------------------\n");
 		printf("                        MODIFICAR EMPLEADOS                       \n");
