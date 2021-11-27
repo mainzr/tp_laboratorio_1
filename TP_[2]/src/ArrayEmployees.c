@@ -118,7 +118,7 @@ int addEmployees(eEmployee* list, int len, int id, char name[], char lastName[],
 
 		 }
 	}
-	system("cls");
+	//system("cls");
 
 	return error;
 }

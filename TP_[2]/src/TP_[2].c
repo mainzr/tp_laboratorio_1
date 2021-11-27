@@ -112,7 +112,7 @@ int main(void) {
 		    	break;
 			}
 
-		system("pause");
+		//system("pause");
 
 
 	} while(restart == 's');
